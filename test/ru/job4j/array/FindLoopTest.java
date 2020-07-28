@@ -23,7 +23,7 @@ public class FindLoopTest {
     }
 
     @Test
-    public void whenArrayHasNot7Then0() {
+    public void whenArrayHasNot7ThenNothing() {
         int[] input = new int[]{5, 4, 3, 2, 1};
         int result = FindLoop.indexOf(input, 7);
         assertThat(result, is(-1));
