@@ -6,7 +6,7 @@ public class SwitchArray {
         boolean destFault = dest >= array.length || dest < 0;
 
         if (sourceFault || destFault) {
-            return null;
+            return new int[]{};
         }
 
         int[] resultArray = array.clone();
