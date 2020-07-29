@@ -18,6 +18,19 @@ public class SwitchArray {
         return resultArray;
     }
 
+    public static String[] swap(String[] array, int source, int dest) {
+        boolean sourceFault = source >= array.length || source < 0;
+        boolean destFault = dest >= array.length || dest < 0;
+
+        if (sourceFault || destFault) {
+            return new String[]{};
+        }
+        String temp = array[source];
+        array[source] = array[dest];
+        array[dest] = temp;
+        return array;
+    }
+
     public static int[] swapBorder(int[] array) {
         int temp = array[0];
         array[0] = array[array.length - 1];
