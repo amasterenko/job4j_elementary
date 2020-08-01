@@ -2,27 +2,18 @@ package ru.job4j.array;
 
 public class SwitchArray {
     public static int[] swap(int[] array, int source, int dest) {
-        boolean sourceFault = source >= array.length || source < 0;
-        boolean destFault = dest >= array.length || dest < 0;
-
-        if (sourceFault || destFault) {
+        if (source >= array.length || source < 0 || dest >= array.length || dest < 0) {
             return new int[]{};
         }
-
-        int[] resultArray = array.clone();
-
-        int temp = resultArray[source];
-        resultArray[source] = resultArray[dest];
-        resultArray[dest] = temp;
-
-        return resultArray;
+        int[] output = array.clone();
+        int temp = output[source];
+        output[source] = output[dest];
+        output[dest] = temp;
+        return output;
     }
 
     public static String[] swap(String[] array, int source, int dest) {
-        boolean sourceFault = source >= array.length || source < 0;
-        boolean destFault = dest >= array.length || dest < 0;
-
-        if (sourceFault || destFault) {
+        if (source >= array.length || source < 0 || dest >= array.length || dest < 0) {
             return new String[]{};
         }
         String temp = array[source];
