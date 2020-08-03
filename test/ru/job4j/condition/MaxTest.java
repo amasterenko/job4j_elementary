@@ -53,4 +53,28 @@ public class MaxTest {
         assertThat(result, is(1));
     }
 
+    @Test
+    public void whenFirstOfFourMax() {
+        int result = Max.max(9, 7, 3, 3);
+        assertThat(result, is(9));
+    }
+
+    @Test
+    public void whenSecondOfFourMax() {
+        int result = Max.max(0, 1, 0, -1);
+        assertThat(result, is(1));
+    }
+
+    @Test
+    public void whenThirdOfFourMax() {
+        int result = Max.max(-10, -7, -3, -5);
+        assertThat(result, is(-3));
+    }
+
+    @Test
+    public void whenAllOfFourAreEqual() {
+        int result = Max.max(1, 1, 1, 1);
+        assertThat(result, is(1));
+    }
+
 }
