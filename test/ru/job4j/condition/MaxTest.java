@@ -29,4 +29,28 @@ public class MaxTest {
         assertThat(result, is(7));
     }
 
+    @Test
+    public void whenFirstOfThreeMax() {
+        int result = Max.max(9, 7, 3);
+        assertThat(result, is(9));
+    }
+
+    @Test
+    public void whenSecondOfThreeMax() {
+        int result = Max.max(9, 17, 3);
+        assertThat(result, is(17));
+    }
+
+    @Test
+    public void whenThirdOfThreeMax() {
+        int result = Max.max(-9, -7, -3);
+        assertThat(result, is(-3));
+    }
+
+    @Test
+    public void whenAllOfThreeAreEqual() {
+        int result = Max.max(1, 1, 1);
+        assertThat(result, is(1));
+    }
+
 }
