@@ -1,8 +1,7 @@
 package ru.job4j.oop;
 
 public class Doctor extends Profession {
-    private String ordinatura;
-    private String internatura;
+    private String internship;
     private String accreditation;
     private String hospital;
 
@@ -10,12 +9,8 @@ public class Doctor extends Profession {
         return hospital;
     }
 
-    public String getOrdinatura() {
-        return ordinatura;
-    }
-
-    public String getInternatura() {
-        return internatura;
+    public String getInternship() {
+        return internship;
     }
 
     public String getAccreditation() {
@@ -26,7 +21,7 @@ public class Doctor extends Profession {
         return null;
     }
 
-    public void fillHistory(Pacient pacient) {
+    public void fillMedicalHistory(Pacient pacient) {
 
     }
 
