@@ -1,21 +1,28 @@
 package ru.job4j.collection;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Article {
     public static boolean generateBy(String origin, String line) {
-        Set<String> dict = new HashSet<>();
+        Map<String, Integer> dictOrigin = new HashMap<>();
         String[] originWords = origin.split(" ");
         for (String str: originWords) {
-            dict.add(str.replaceAll("[!?,.:;]", ""));
+            String cleanedWord = str.replaceAll("[!?,.:;]", "");
+            if (!dictOrigin.containsKey(cleanedWord)) {
+                dictOrigin.put(cleanedWord, 1);
+            } else {
+                dictOrigin.put(cleanedWord, dictOrigin.get(cleanedWord) + 1);
+            }
         }
         String[] lineWords = line.split(" ");
-        String[] lineClearWords = new String[lineWords.length];
-        for (int i = 0; i < lineWords.length; i++) {
-            lineClearWords[i] = lineWords[i].replaceAll("[!?,.:;]", "");
+        for (String str : lineWords) {
+            String cleanedWord = str.replaceAll("[!?,.:;]", "");
+            if (!dictOrigin.containsKey(cleanedWord) || dictOrigin.get(cleanedWord) == 0) {
+                return false;
+            } else {
+                dictOrigin.put(cleanedWord, dictOrigin.get(cleanedWord) - 1);
+            }
         }
-        return dict.containsAll(Arrays.asList(lineClearWords));
+        return true;
     }
 }
