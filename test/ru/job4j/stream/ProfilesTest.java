@@ -6,7 +6,7 @@ import org.junit.Test;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 
-public class ProfileTest {
+public class ProfilesTest {
     @Test
     public void whenAddressCollect() {
         List<Profile> list = Arrays.asList(
@@ -19,6 +19,6 @@ public class ProfileTest {
                 new Address("Moscow", "Tverskaya", 5, 3),
                 new Address("Paris", "Pont Neuf", 15, 7)
         );
-        assertThat(Profile.collect(list), is(expected));
+        assertThat(Profiles.collect(list), is(expected));
     }
 }
