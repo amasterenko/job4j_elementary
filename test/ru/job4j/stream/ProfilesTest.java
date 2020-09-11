@@ -12,7 +12,8 @@ public class ProfilesTest {
         List<Profile> list = Arrays.asList(
                 new Profile(new Address("London", "Piccadilly", 12, 2)),
                 new Profile(new Address("Moscow", "Tverskaya", 5, 3)),
-                new Profile(new Address("Paris", "Pont Neuf", 15, 7))
+                new Profile(new Address("Paris", "Pont Neuf", 15, 7)),
+                new Profile(new Address("London", "Piccadilly", 12, 2))
         );
         List<Address> expected = Arrays.asList(
                 new Address("London", "Piccadilly", 12, 2),
@@ -20,38 +21,5 @@ public class ProfilesTest {
                 new Address("Paris", "Pont Neuf", 15, 7)
         );
         assertThat(Profiles.collect(list), is(expected));
-    }
-
-    @Test
-    public void whenAddressSort() {
-        List<Profile> list = Arrays.asList(
-                new Profile(new Address("London", "Piccadilly", 12, 2)),
-                new Profile(new Address("Moscow", "Tverskaya", 5, 3)),
-                new Profile(new Address("Paris", "Pont Neuf", 15, 7)),
-                new Profile(new Address("London", "Piccadilly", 12, 2))
-        );
-        List<Profile> expected = Arrays.asList(
-                new Profile(new Address("London", "Piccadilly", 12, 2)),
-                new Profile(new Address("London", "Piccadilly", 12, 2)),
-                new Profile(new Address("Moscow", "Tverskaya", 5, 3)),
-                new Profile(new Address("Paris", "Pont Neuf", 15, 7))
-        );
-        assertThat(Profiles.sortByCity(list), is(expected));
-    }
-
-    @Test
-    public void whenAddressCutClone() {
-        List<Profile> list = Arrays.asList(
-                new Profile(new Address("London", "Piccadilly", 12, 2)),
-                new Profile(new Address("Moscow", "Tverskaya", 5, 3)),
-                new Profile(new Address("Paris", "Pont Neuf", 15, 7)),
-                new Profile(new Address("London", "Piccadilly", 12, 2))
-        );
-        List<Profile> expected = Arrays.asList(
-                new Profile(new Address("London", "Piccadilly", 12, 2)),
-                new Profile(new Address("Moscow", "Tverskaya", 5, 3)),
-                new Profile(new Address("Paris", "Pont Neuf", 15, 7))
-        );
-        assertThat(Profiles.cutClones(list), is(expected));
     }
 }

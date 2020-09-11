@@ -8,17 +8,7 @@ public class Profiles {
     public static List<Address> collect(List<Profile> profiles) {
         return profiles.stream()
                 .map(Profile::getAddress)
-                .collect(Collectors.toList());
-    }
-
-    public static List<Profile> sortByCity(List<Profile> profiles) {
-        return profiles.stream()
-                .sorted((p1, p2) -> p1.getAddress().getCity().compareTo(p2.getAddress().getCity()))
-                .collect(Collectors.toList());
-    }
-
-    public static List<Profile> cutClones(List<Profile> profiles) {
-        return profiles.stream()
+                .sorted((adr1, adr2) -> adr1.getCity().compareTo(adr2.getCity()))
                 .distinct()
                 .collect(Collectors.toList());
     }
