@@ -15,20 +15,17 @@ import static org.junit.Assert.*;
 public class ListToMapTest {
     @Test
     public void whenListToMap() {
-        School school = new School();
         List<Student> students = Arrays.asList(
                 new Student("Smith", 75),
                 new Student("Willis", 10),
-                new Student("Mask", 90)
+                new Student("Mask", 90),
+                new Student("Smith", 75)
         );
         Map<String, Student> expectedMap = new HashMap<>();
         expectedMap.put("Smith", new Student("Smith", 75));
         expectedMap.put("Willis", new Student("Willis", 10));
         expectedMap.put("Mask", new Student("Mask", 90));
 
-        assertThat(students.stream()
-                .distinct()
-                .collect(Collectors.toMap(Student::getSurname, Function.identity())
-                ), is(expectedMap));
+        assertThat(ListToMap.convert(students), is(expectedMap));
     }
 }
