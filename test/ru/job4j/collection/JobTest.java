@@ -57,7 +57,7 @@ public class JobTest {
                 new Job("TaskB", 10),
                 new Job("TaskB", 5),
                 new Job("TaskC", 2));
-        List<Job> sortedList = Arrays.asList(
+        List<Job> sortedList = List.of(
                 new Job("TaskC", 2),
                 new Job("TaskB", 10),
                 new Job("TaskB", 5));
@@ -72,7 +72,7 @@ public class JobTest {
                 new Job("TaskB", 10),
                 new Job("TaskB", 5),
                 new Job("TaskC", 2));
-        List<Job> sortedList = Arrays.asList(
+        List<Job> sortedList = List.of(
                 new Job("TaskB", 5),
                 new Job("TaskB", 10),
                 new Job("TaskC", 2));
@@ -87,7 +87,7 @@ public class JobTest {
                 new Job("TaskB", 10),
                 new Job("TaskA", 10),
                 new Job("TaskC", 20));
-        List<Job> sortedList = Arrays.asList(
+        List<Job> sortedList = List.of(
                 new Job("TaskC", 20),
                 new Job("TaskB", 10),
                 new Job("TaskA", 10));
@@ -102,7 +102,7 @@ public class JobTest {
                 new Job("TaskB", 10),
                 new Job("TaskA", 10),
                 new Job("TaskC", 20));
-        List<Job> sortedList = Arrays.asList(
+        List<Job> sortedList = List.of(
                 new Job("TaskA", 10),
                 new Job("TaskB", 10),
                 new Job("TaskC", 20));
