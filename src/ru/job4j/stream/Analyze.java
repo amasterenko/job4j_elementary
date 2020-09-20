@@ -10,18 +10,14 @@ public class Analyze {
         return stream
                 .map(Pupil::getSubjects)
                 .flatMap(Collection::stream)
-                .mapToDouble(Subject::getScore)
-                .average()
-                .orElse(0);
+                .collect(Collectors.averagingDouble(Subject::getScore));
     }
 
     public static List<Tuple> averageScoreBySubject(Stream<Pupil> stream) {
         return stream
                 .map(p -> new Tuple(p.getName(),
                         p.getSubjects().stream()
-                            .mapToDouble(Subject::getScore)
-                            .average()
-                            .orElse(0)))
+                        .collect(Collectors.averagingDouble(Subject::getScore))))
                 .collect(Collectors.toList());
     }
 
