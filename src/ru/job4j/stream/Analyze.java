@@ -8,8 +8,7 @@ import java.util.stream.Stream;
 public class Analyze {
     public static double averageScore(Stream<Pupil> stream) {
         return stream
-                .map(Pupil::getSubjects)
-                .flatMap(Collection::stream)
+                .flatMap(p -> p.getSubjects().stream())
                 .collect(Collectors.averagingDouble(Subject::getScore));
     }
 
@@ -23,8 +22,7 @@ public class Analyze {
 
     public static List<Tuple> averageScoreByPupil(Stream<Pupil> stream) {
         return stream
-                .map(Pupil::getSubjects)
-                .flatMap(Collection::stream)
+                .flatMap(p -> p.getSubjects().stream())
                 .collect(Collectors.groupingBy(
                         Subject::getName,
                         LinkedHashMap::new,
@@ -41,13 +39,12 @@ public class Analyze {
                                 .mapToDouble(Subject::getScore)
                                 .sum()))
                 .max(Tuple::compareTo)
-                .orElse(new Tuple("", 0));
+                .orElse(null);
     }
 
     public static Tuple bestSubject(Stream<Pupil> stream) {
          return stream
-                 .map(Pupil::getSubjects)
-                 .flatMap(Collection::stream)
+                 .flatMap(p -> p.getSubjects().stream())
                  .collect(Collectors.groupingBy(
                          Subject::getName,
                          LinkedHashMap::new,
@@ -55,6 +52,6 @@ public class Analyze {
                  .entrySet().stream()
                  .map(e -> new Tuple(e.getKey(), e.getValue().getSum()))
                  .max(Tuple::compareTo)
-                 .orElse(new Tuple("", 0));
+                 .orElse(null);
     }
 }
